@@ -1,0 +1,147 @@
+uhc:
+- id: 1
+  team: ComED is in the hood
+  team_short: CITH
+  member:
+  - name: SPINOx
+    uuid: 9546d46d-c278-4233-b63f-5fef8b68a2cc
+  - name: BrunoOme
+    uuid: 59ede7bf-e3ff-4641-a7d7-7eaed5dee506
+  - name: tpchrsky
+    uuid: b38e9196-707c-492f-8b74-0eaa76161bcf
+  - name: NonzJarms
+    uuid: 7e814272-29e5-43da-acc9-f7c21f6549b4
+- id: 2
+  team: Prank Kids
+  team_short: PK
+  member:
+  - name: _AsuraAesir_
+    uuid: a56725f4-c0a0-4b96-84ba-290ee24d6576
+  - name: Orcustus
+    uuid: c0db98dc-b831-405c-9ecf-6a14e3701be5
+  - name: OA7z
+    uuid: 7ddd453b-c19b-45cd-841d-c5fff35985d4
+  - name: Akir4x
+    uuid: a3ceb1f9-f01c-4bc9-b742-dce3ef2c1dac
+- id: 3
+  team: Kaijeaw
+  team_short: KJ
+  member:
+  - name: vilz_b
+    uuid: df9dbc44-1dd1-43f7-85db-c8fda3d9fc87
+  - name: JukJui
+    uuid: 6de65ec9-d5c1-4ca0-afc9-ca5fc971dca3
+  - name: iEmelia
+    uuid: 593cd994-c939-4c23-907a-ab5bbf27be00
+  - name: Varanzies
+    uuid: 7f93079f-fe66-4fa9-8024-67842ba583d4
+    note: ID may change
+- id: 4
+  team: retired boxer
+  team_short: RB
+  member:
+  - name: Zhiend
+    uuid: d2e2c332-32dc-44d7-99f0-b793a6097480
+  - name: Nilantha
+    uuid: 0d6e95cc-32c4-4857-9492-17328210051f
+  - name: ry3u
+    uuid: 57495c3c-04e4-4353-b129-5824beb6125d
+  - name: TakeYourSword
+    uuid: beb3ca30-91fe-4801-8da6-bd9f1b0e6d45
+- id: 5
+  team: WhatTime
+  team_short: WT
+  member:
+  - name: DOLZAZA_GAMER
+    uuid: 280419d3-bb22-4770-8bf2-133cc38209e1
+  - name: GennoRing
+    uuid: 6a095352-6b1f-4f74-8652-255cde27c327
+  - name: CKij
+    uuid: a8ad17ff-8d09-4ff9-8190-ccca38ecf090
+  - name: SwordMax_Kungg
+    uuid: e831111f-a5d1-4b1c-a733-a619b21dd608
+- id: 6
+  team: Khon Kaen Easy
+  team_short: KKEZ
+  member:
+  - name: Loftus
+    uuid: d88098a1-1a9e-4479-8d41-f468c76da0d8
+  - name: leokungYT
+    uuid: ac3e8a34-e8e7-4ec4-b28f-874358b4dedf
+  - name: Edward_s11
+    uuid: 80f70060-cddd-49e3-9ff0-22ac481a4496
+  - name: Maiza_th
+    uuid: 9e38ec2e-a765-476e-beef-ee689b0a7807
+- id: 7
+  team: No Internet
+  team_short: NIT
+  member:
+  - name: Rachea
+    uuid: 462a865d-fe8a-4aeb-a6c4-4593a579deb2
+  - name: IDKONWZZ
+    uuid: fe335a97-66ac-4dd2-86c8-41a5f784366d
+  - name: rooster790
+    uuid: 2b7d857e-3118-45a6-93a4-0f9f625ed8bf
+  - name: SLBwolf
+    uuid: 63365d45-fd81-474f-9c1c-f03e5876f5ba
+- id: 8
+  team: Eyema4Khon
+  team_short: EM4
+  member:
+  - name: IMZ_imanzaza
+    uuid: 12588589-5556-4424-a9a1-68fbc5269179
+  - name: PL_XNEST
+    uuid: 894256e9-f1ff-48cf-9ff0-59e84651e225
+  - name: _babylarm_
+    uuid: b69739c8-ef7b-423f-a2ac-2f831c1338c6
+  - name: TiTlE_KONG_DD
+    uuid: 6db04c78-fa35-4d6e-b687-870b25d07fe3
+- id: 9
+  team: pufferfish
+  team_short: PFF
+  member:
+  - name: KiwSoHardZ_
+    uuid: 17ace9a9-cae0-4c16-af3b-7781544d0f4a
+  - name: tosakys
+    uuid: d361c371-a856-4ff2-a205-be30f1ac18d1
+  - name: 3056ch
+    uuid: 7599329f-1e30-422e-b840-89a9294ac93c
+  - name: 4SGAMERTV
+    uuid: a486ba23-6d67-4b52-8148-70836f732d46
+- id: 10
+  team: Team SomSom
+  team_short: TSS
+  member:
+  - name: kinikrit
+    uuid: 9c517295-dacd-4f17-948c-7de4cb9ae893
+  - name: ZYXIERZEO
+    uuid: c3b9fb24-95f7-48c6-b3af-5a5e8accd31f
+  - name: LEgendZy
+    uuid: 7decfd9c-6455-4dd5-912a-a33845680ab8
+  - name: SaNiTaTeuR
+    uuid: ''
+    sus: true
+- id: 11
+  team: หมาหลวงตาวัดหนองกึ่ม
+  team_short: MT
+  member:
+  - name: summerwithyou
+    uuid: 988331a0-4835-417e-9e37-169ccd948a6e
+  - name: e_a_s_y_n_a_m_e
+    uuid: 0f5c28ef-afad-4835-8592-2690bc512c25
+  - name: MickeyMacz_
+    uuid: e3b58287-9ee3-43ff-8a5f-f83143bac2d6
+  - name: iEmmie
+    uuid: 89a624b9-f305-423b-9600-948de8373d4d
+- id: 12
+  team: Why WE
+  team_short: YV
+  member:
+  - name: NTG_Nut_
+    uuid: 953a4a6d-e900-4d97-9fb4-323ec9a7a2c9
+  - name: Knotty_Kun
+    uuid: f8173278-d833-4d60-9788-4fa06feee766
+  - name: MiNEKOzX
+    uuid: 38d4db04-eadc-480e-9340-826921c63c57
+  - name: Peam_Uantrai
+    uuid: 66be8c08-630e-46ec-8bb6-69b19dec7737

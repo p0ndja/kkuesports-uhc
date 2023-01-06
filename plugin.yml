@@ -1,0 +1,41 @@
+main: dev.p0ndja.kkuesports.pluginMain
+name: KKUeSportsUHC
+version: '1.0.1'
+description: "PondJaTH's 2nd try on java bukkit plugin development."
+author: PondJaTH
+api-version: '1.19'
+softdepend: [TTA]
+depend: [PlaceholderAPI, ActionBarAPI]
+load: POSTWORLD
+website: https://github.com/p0ndja/KKUUHC
+commands:
+ killstats:
+    description: Killstats command
+    usage: /test [arg]
+ spawn:
+    description: spawn command
+    usage: /spawn
+ broadcast:
+    description: broadcast command
+    usage: /broadcast [msg]
+    aliases: [b]
+ admin:
+    description: admin chat command
+    usage: /admin [msg]
+    aliases: [a]
+ test:
+    description: test
+    usage: /test
+ uhcadmin:
+    description: UHC Admin command
+    usage: /uhcadmin [arg]
+    permission: kkuesports.admin
+
+permissions:
+ kkuesports.*:
+    description: Gives access to all SMDMain commands
+    children:
+        kkuesports.admin: true
+ kkuesports.admin:
+    description: Allow to use /uhcadmin
+    default: op
