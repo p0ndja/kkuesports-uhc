@@ -1,6 +1,6 @@
 main: dev.p0ndja.kkuesports.pluginMain
 name: KKUeSportsUHC
-version: '1.0.1'
+version: '1.0.2'
 description: "PondJaTH's 2nd try on java bukkit plugin development."
 author: PondJaTH
 api-version: '1.19'
