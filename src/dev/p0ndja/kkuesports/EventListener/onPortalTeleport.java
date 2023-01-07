@@ -10,7 +10,7 @@ import dev.p0ndja.kkuesports.pluginMain;
 
 public class onPortalTeleport implements Listener {
 	
-	public static boolean allowPortal = false;
+	public static boolean allowPortal = true;
 	
 	pluginMain pl;
 	public onPortalTeleport(pluginMain pl) {
@@ -19,7 +19,7 @@ public class onPortalTeleport implements Listener {
 	
 	@EventHandler
 	public void portal(PlayerPortalEvent event) {
-		if (allowPortal == true)
+		if (allowPortal == false)
 			event.setCancelled(true);
 	}
 }
