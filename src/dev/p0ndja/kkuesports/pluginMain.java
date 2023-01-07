@@ -48,6 +48,10 @@ public class pluginMain extends JavaPlugin implements Listener {
 	File f1 = new File(Global.pluginDir, File.separator + "killstats.yml");
 	FileConfiguration killData = YamlConfiguration.loadConfiguration(f1);
 	
+	int s = Integer.MAX_VALUE;
+	int ss = Integer.MAX_VALUE;
+	int sss = Integer.MAX_VALUE;
+
 	public void onDisable() {
 		Bukkit.broadcastMessage(Prefix.server + getDescription().getName() + " System: " + ChatColor.RED + ChatColor.BOLD + "Disable");
 		for (Player player1 : Bukkit.getOnlinePlayers())
@@ -90,10 +94,8 @@ public class pluginMain extends JavaPlugin implements Listener {
 		Bukkit.broadcastMessage(getDescription().getName() + "'s patch version: " + ChatColor.GREEN + getDescription().getVersion());
 		Bukkit.broadcastMessage("Developer: " + ChatColor.GOLD + ChatColor.BOLD + "p0ndja");
 		Bukkit.broadcastMessage("");
+
 	}
-	
-	int s = Integer.MAX_VALUE;
-	int ss = Integer.MAX_VALUE;
 
 	public boolean onCommand(CommandSender sender, Command cmd, String CommandLabel, String[] args) {
 		if (CommandLabel.equalsIgnoreCase("test")) {
@@ -136,7 +138,7 @@ public class pluginMain extends JavaPlugin implements Listener {
 			if (sender.isOp()) {
 				String msg = "";
 				for(int i = 0; i < args.length; i++) {
-					msg += args[i];
+					msg += args[i]+ " ";
 				}
 				Bukkit.broadcastMessage("");
 				Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + "Broadcast> " + ChatColor.WHITE + msg);
@@ -149,7 +151,7 @@ public class pluginMain extends JavaPlugin implements Listener {
 			if (sender.isOp()) {
 				String msg = "";
 				for(int i = 0; i < args.length; i++) {
-					msg += args[i];
+					msg += args[i]+ " ";
 				}
 				for(Player p : Bukkit.getOnlinePlayers()) {
 					if (p.isOp()) {
@@ -232,7 +234,8 @@ public class pluginMain extends JavaPlugin implements Listener {
 						Function.yes();
 						for (Player p : Bukkit.getOnlinePlayers()) {
 							p.sendTitle(ChatColor.GREEN + "" + ChatColor.BOLD + "UHC", df, 10, 1000, 10);
-							p.setInvulnerable(true);
+							p.setGameMode(GameMode.SPECTATOR);
+							p.teleport(new Location(Bukkit.getWorld("world"), 0, 68, 0));
 						}
 						Bukkit.broadcastMessage(Prefix.server + df);
  						Bukkit.broadcastMessage("");
@@ -251,6 +254,34 @@ public class pluginMain extends JavaPlugin implements Listener {
 		 						spawnFirework();
 							}
 						}, 0L, 3L);
+					} else if (args[0].equalsIgnoreCase("cleargod")) {
+						for(Player p : Bukkit.getOnlinePlayers()) {
+							p.setInvulnerable(false);
+							Bukkit.broadcastMessage("Clear invulnerable for " + p.getDisplayName());
+						}
+					} else if (args[0].equalsIgnoreCase("createplatform")) {
+						Timer.createPlatform();
+						sender.sendMessage("Created");
+					} else if (args[0].equalsIgnoreCase("deleteplatform")) {
+						Timer.deletePlatform();
+						sender.sendMessage("Deleted");
+					} else if (args[0].equalsIgnoreCase("cleartask")) {
+						Bukkit.broadcastMessage("Cleared task " + s + ", " + ss + ", " + sss);
+						Bukkit.getServer().getScheduler().cancelTask(s);
+						Bukkit.getServer().getScheduler().cancelTask(ss);
+						Bukkit.getServer().getScheduler().cancelTask(sss);
+					} else if (args[0].equalsIgnoreCase("setdeathy")) {
+						sss = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
+							@Override
+							public void run() {
+								for (Player p : Bukkit.getOnlinePlayers()) {
+									if (p.getGameMode() == GameMode.SURVIVAL && p.getLocation().getY() < 300) {
+										p.setHealth(0);
+										Bukkit.broadcastMessage(p.getDisplayName() + " is outside the playzone");
+									}
+								}
+							}
+						}, 0L, 20L);
 					}
 				}
 			}
