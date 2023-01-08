@@ -27,6 +27,7 @@ public class Timer {
 	public static long eventTargetTime = -1;
 	public static boolean pause = false;
 	public static long startServerTime = 0;
+	public static boolean skipJoinAutoBan = false;
 
 	public static void run() {
 		UHCEventHandler();
@@ -87,10 +88,10 @@ public class Timer {
 		
 		if (Timer.time == 0) {
 			for (Player p : Bukkit.getOnlinePlayers()) {
-				if (!p.isOp() && !p.getScoreboard().getPlayerTeam(p).getName().toLowerCase().equalsIgnoreCase("kku"))
-					p.setGameMode(GameMode.SURVIVAL);
-				else
+				if (p.isOp() || p.getScoreboard().getPlayerTeam(p).getName().toLowerCase().equalsIgnoreCase("kku"))
 					p.setGameMode(GameMode.SPECTATOR);
+				else
+					p.setGameMode(GameMode.SURVIVAL);
 			}
 			overworld.setGameRule(GameRule.DO_IMMEDIATE_RESPAWN, true);
 			overworld.setGameRule(GameRule.DO_DAYLIGHT_CYCLE, true);
@@ -195,7 +196,7 @@ public class Timer {
 		} else if (Timer.time == 3000-(5*60)+1) { //50 minutes - 5 m + 1
 			eventMessage = "เริ่มการลดขนาด Worldborder เป็น 3000x3000";
 			eventTargetTime = 3000;
-			Bukkit.broadcastMessage(Prefix.server + "Worldborder กำลังจะลดขนาดเหลือ " + ChatColor.AQUA + "3000x3000" + ChatColor.GRAY + " ในอีก " + ChatColor.GOLD + "5 นาที" + ChatColor.YELLOW + ChatColor.ITALIC + " [00:45:01]");
+			Bukkit.broadcastMessage(Prefix.server + "Worldborder กำลังจะลดขนาดเหลือ " + ChatColor.AQUA + "3000x3000" + ChatColor.GRAY + " ในอีก " + ChatColor.GOLD + "5 นาที" + ChatColor.YELLOW + ChatColor.ITALIC + " [00:45:00]");
 			Function.pling(1);
 		} else if (Timer.time == 3000-(3*60)) { //50 minutes - 3m
 			eventMessage = "เริ่มการลดขนาด Worldborder เป็น 3000x3000";
@@ -292,7 +293,7 @@ public class Timer {
 		} else if (Timer.time == 6900-(5*60)+1) { //1h55m - 5 m +1
 			eventMessage = "เริ่มการลดขนาด Worldborder เป็น 50x50";
 			eventTargetTime = 6900;
-			Bukkit.broadcastMessage(Prefix.server + "Worldborder กำลังจะลดขนาดเหลือ " + ChatColor.AQUA + "50x50" + ChatColor.GRAY + " ในอีก " + ChatColor.GOLD + "5 นาที" + ChatColor.YELLOW + ChatColor.ITALIC + " [01:50:01]");
+			Bukkit.broadcastMessage(Prefix.server + "Worldborder กำลังจะลดขนาดเหลือ " + ChatColor.AQUA + "50x50" + ChatColor.GRAY + " ในอีก " + ChatColor.GOLD + "5 นาที" + ChatColor.YELLOW + ChatColor.ITALIC + " [01:50:00]");
 			Function.pling(1);
 		} else if (Timer.time == 6900-(3*60)) { //1h55m - 3m
 			eventMessage = "เริ่มการลดขนาด Worldborder เป็น 50x50";
@@ -315,7 +316,7 @@ public class Timer {
 		
 		
 		else if (Timer.time == 7200) {
-			Bukkit.broadcastMessage(Prefix.server + "แสดงตำแหน่งของผู้เล่นทั้งหมด" + ChatColor.YELLOW + ChatColor.ITALIC + " [02:14:00]");
+			Bukkit.broadcastMessage(Prefix.server + "แสดงตำแหน่งของผู้เล่นทั้งหมด" + ChatColor.YELLOW + ChatColor.ITALIC + " [02:00:00]");
 			for(Player p : Bukkit.getOnlinePlayers()) {
 				p.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 1000000, 0));
 			}
@@ -334,8 +335,9 @@ public class Timer {
 			Bukkit.broadcastMessage(Prefix.server + "เทเลพอร์ตผู้เล่นทั้งหมดมายังลาน" + ChatColor.YELLOW + ChatColor.ITALIC + " [02:15:00]");
 			for (Player p : Bukkit.getOnlinePlayers()) {
 				p.setInvulnerable(true);
+				p.teleport(new Location(overworld, 0, 317, 0));
 			}
-			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "spreadplayers 0 0 10 25 true @a");
+			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "spreadplayers 0 0 10 20 true @a");
 			
 			onPlayerPvP.peacefulMode = true;
 			Bukkit.broadcastMessage(Prefix.server + "PvP " + ChatColor.RED + "ได้ถูกปิดชั่วคราวเป็นเวลา 30 วินาที" + ChatColor.YELLOW + ChatColor.ITALIC + " [02:15:00]");

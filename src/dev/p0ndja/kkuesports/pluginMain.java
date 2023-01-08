@@ -168,13 +168,19 @@ public class pluginMain extends JavaPlugin implements Listener {
 				sender instanceof BlockCommandSender) {
 				if (args.length == 0) {
 					sender.sendMessage(ChatColor.YELLOW + " " + ChatColor.BOLD + "=== UHC Admin ===");
-					sender.sendMessage("/uhcadmin pvp - Toggle PvP");
-					sender.sendMessage("");
 					sender.sendMessage("/uhcadmin start - Start Game Routine");
 					sender.sendMessage("/uhcadmin pause - Pause Game Routine");
 					sender.sendMessage("/uhcadmin continue - Pause Game Routine");
 					sender.sendMessage("/uhcadmin stop - Clear Game Routine");
 					sender.sendMessage("/uhcadmin end - End Game Notify");
+					sender.sendMessage("");
+					sender.sendMessage("/uhcadmin pvp - Toggle PvP");
+					sender.sendMessage("/uhcadmin [start/stop]firework - Firework!");
+					sender.sendMessage("/uhcadmin cleartask - Clear all UHC running task");
+					sender.sendMessage("/uhcadmin cleargod - Clear all god mode from player");
+					sender.sendMessage("/uhcadmin [create/delete]platform - Platform for endgame");
+					sender.sendMessage("/uhcadmin setdeathy - Set Y = 300 as death zone");
+					sender.sendMessage("/uhcadmin setautoban [true/false]");
 				} else {
 					if (args[0].equalsIgnoreCase("pvp")) {
 						onPlayerPvP.peacefulMode = !onPlayerPvP.peacefulMode;
@@ -246,6 +252,7 @@ public class pluginMain extends JavaPlugin implements Listener {
 							}
 						}, 0L, 3L);
 					} else if (args[0].equalsIgnoreCase("stopfirework")) {
+						sender.sendMessage("Stop Firework routine");
 						Bukkit.getServer().getScheduler().cancelTask(ss);
 					} else if (args[0].equalsIgnoreCase("startfirework")) {
 						ss = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
@@ -254,6 +261,7 @@ public class pluginMain extends JavaPlugin implements Listener {
 		 						spawnFirework();
 							}
 						}, 0L, 3L);
+						sender.sendMessage("Spawn Firework routine");
 					} else if (args[0].equalsIgnoreCase("cleargod")) {
 						for(Player p : Bukkit.getOnlinePlayers()) {
 							p.setInvulnerable(false);
@@ -282,6 +290,21 @@ public class pluginMain extends JavaPlugin implements Listener {
 								}
 							}
 						}, 0L, 20L);
+						sender.sendMessage("Set death Y routine");
+					}else if (args[0].equalsIgnoreCase("setautoban")) {
+						if (args.length > 1) {
+							if (args[1].equalsIgnoreCase("true")) {
+								Timer.skipJoinAutoBan = true;
+								sender.sendMessage("Auto-ban is skipped");
+							} else if (args[1].equalsIgnoreCase("false")) {
+								Timer.skipJoinAutoBan = false;
+								sender.sendMessage("Auto-ban is enabled");
+							} else {
+								sender.sendMessage("/uhcadmin setautoban [true/false]");
+							}
+						} else {
+							sender.sendMessage("/uhcadmin setautoban [true/false]");
+						}
 					}
 				}
 			}

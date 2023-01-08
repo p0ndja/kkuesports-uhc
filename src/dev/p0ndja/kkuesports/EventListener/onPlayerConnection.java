@@ -90,12 +90,13 @@ public class onPlayerConnection implements Listener {
 			pl.reloadConfig();
 			long logoutTime = pl.getConfig().getLong("connection."+player.getUniqueId()+".logout");
 			long loginTime = pl.getConfig().getLong("connection."+player.getUniqueId()+".login");
-			if (Timer.time > 1800 && (System.currentTimeMillis() - logoutTime > 60*1000)) { //60 s in ms
+			if (Timer.skipJoinAutoBan == true) {
+				Bukkit.broadcastMessage("Skip auto-ban on joining for " + playerName);
+			} else if (Timer.time > 1800 && (System.currentTimeMillis() - logoutTime > 60*1000)) { //60 s in ms
 				Bukkit.getBanList(Type.NAME).addBan(player.getName(), "[UHC] you're died, due to lost connection more than 60 seconds.", null, null);
 				player.kickPlayer("[UHC] you're died, due to lost connection more than 60 seconds.");
 				Bukkit.broadcastMessage(player.getDisplayName() + " was died, due to lost connection more than 60 seconds.");
-			}
-			if (Timer.time > 0 && logoutTime < Timer.startServerTime) { //60 s in ms
+			} else if (Timer.time > 0 && logoutTime < Timer.startServerTime) { //60 s in ms
 				Bukkit.getBanList(Type.NAME).addBan(player.getName(), "[UHC] you're died, due to joining the match late.", null, null);
 				player.kickPlayer("[UHC] you're died, due to joining the match late.");
 				Bukkit.broadcastMessage(player.getDisplayName() + " was died, due to joining the match late.");
